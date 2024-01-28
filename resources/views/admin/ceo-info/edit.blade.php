@@ -14,17 +14,20 @@
     <div class="page-content font">
         <div class="row">
             <div class="col-xs-12">
+                @if (session('success'))
+                    <div class="alert alert-success">{{session('success')}}</div>
+                @endif
                 <!-- PAGE CONTENT BEGINS -->
-                <form class="form-horizontal" role="form" method="POST" action="{{route('widgets.update')}}"
+                <form class="form-horizontal" role="form" method="POST" action="{{route('ceos.update')}}"
                     enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="id" value="{{$widget->first()->id}}">
+                    <input type="hidden" name="id" value="{{$ceo->first()->id}}">
                     {{-- Name --}}
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="name">Name :</label>
 
                         <div class="col-sm-9">
-                            <input type="text" value="{{$widget->first()->name}}" name="name" id="name" placeholder="name"
+                            <input type="text" value="{{$ceo->first()->name}}" name="name" id="name" placeholder="name"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
@@ -40,7 +43,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="name">Title :</label>
 
                         <div class="col-sm-9">
-                            <input type="text" value="{{$widget->first()->title}}" name="title" id="title" placeholder="Title"
+                            <input type="text" value="{{$ceo->first()->title}}" name="title" id="title" placeholder="Title"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
@@ -58,7 +61,7 @@
                         <div class="col-sm-9">
                             <textarea id="desp" name="description" 
                             class="col-xs-12 col-md-11 col-sm-12"
-                            style="height: 150px; width: 92%;">{{$widget->first()->description}}</textarea>
+                            style="height: 150px; width: 92%;">{{$ceo->first()->description}}</textarea>
                             <br> <br>
                             <span>
                                 @error('description')
@@ -73,7 +76,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="vdo_link">Video link :</label>
 
                         <div class="col-sm-9">
-                            <input type="text" value="{{$widget->first()->vdo_link}}" name="vdo_link" id="vdo_link" placeholder="Video link here"
+                            <input type="text" value="{{$ceo->first()->vdo_link}}" name="vdo_link" id="vdo_link" placeholder="Video link here"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
@@ -93,7 +96,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12 col-md-12">
                                             <label class="ace-file-input ace-file-multiple"><input type="file"
-                                                    id="imageInput" name="image" onchange="previewImage()" /><span class="ace-file-container"
+                                                    id="imageInput" name="image"  onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" /><span class="ace-file-container"
                                                     data-title="Choose Ceo Image..."><span class="ace-file-name"
                                                         data-title="No File ..."><i
                                                             class=" ace-icon ace-icon fa fa-cloud-upload"></i></span></span><a
@@ -106,7 +109,7 @@
 
                             <span class="help-inline col-xs-12 col-sm-7">
                                 <label class="middle" id="imagePreviewLabel">
-                                    <img height="145" width="155" src="{{asset('images/ceo/'.$widget->first()->image)}}"
+                                    <img height="145" id="blah" width="155" src="{{asset('images/ceo/'.$ceo->first()->image)}}"
                                         alt="Ceo Image">
                                 </label>
                             </span>
@@ -128,24 +131,4 @@
     </div>
 </div>
 @endsection
-@push('js')
-<script>
-    function previewImage() {
-        var input = document.getElementById('imageInput');
-        var previewLabel = document.getElementById('imagePreviewLabel');
 
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                previewLabel.innerHTML = '<img src="' + e.target.result +
-                    '" alt="Image Preview" style="max-width:155px;max-height:145px;">';
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            previewLabel.innerHTML = '<span class="lbl"> Image Preview</span>';
-        }
-    }
-</script>
-@endpush

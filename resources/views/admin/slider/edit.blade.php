@@ -1,7 +1,5 @@
 @extends('admin.include.master')
 @section('body')
-
-
 <div class="main-content-inner font">
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
         <ul class="breadcrumb">
@@ -24,14 +22,29 @@
                     @method('PUT')
                     {{-- service name  --}}
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="slider_name">Service Name :</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="slider_title">Service Name :</label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="name" id="name" value="{{$slider->name}}" placeholder="slider Name"
+                            <input type="text" name="title" id="slider_title" value="{{$slider->title}}" placeholder="slider Title"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
-                                @error('name')
+                                @error('title')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </span>
+                        </div>
+                    </div>
+
+                    {{-- slider mini description --}}
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="description">About
+                            :</label>
+                        <div class="col-sm-9">
+                            <textarea id="description" name="description" placeholder="Write details about slider" class="col-xs-12 col-md-11 col-sm-12"
+                                style="height: 150px; width: 92%;">{{$slider->description}}</textarea>
+                            <span>
+                                @error('description')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </span>
@@ -61,7 +74,7 @@
 
                             <span class="help-inline col-xs-12 col-sm-7">
                                 <label class="middle" id="imagePreviewLabel">
-                                    <img height="145" width="155" src="{{asset('image/slider/'.$slider->image)}}"
+                                    <img height="145" width="155" src="{{asset('images/slider/'.$slider->image)}}"
                                         alt="slider Image">
                                 </label>
                             </span>

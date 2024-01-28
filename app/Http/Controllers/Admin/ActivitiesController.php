@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Activitie;
 use Illuminate\Http\Request;
@@ -32,7 +33,25 @@ class ActivitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'header' => 'nullable',
+            'title' => 'required',
+            'about' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
+        ];
+        //validate check request data
+        $validateData = $request->validate($rules);
+
+        // Image management using helper function
+        if ($request->hasFile('image')) {
+            $imageName = ImageHelper::uploadImage($request->file('image'), '/images/activitie/');
+            $validateData ['image'] = $imageName;
+        }
+        // Store data
+        Activitie::create($validateData);
+
+        //redirect
+        return back()->withSuccess('New Activitie Create Successfull!');
     }
 
     /**
@@ -46,26 +65,54 @@ class ActivitiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Activitie $activitie)
+    public function edit(Activitie $activity)
     {
         return view('admin.activite.edit',[
-            'activitie'=> $activitie, 
+            'activity'=> $activity, 
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Activitie $activity)
     {
-        //
+        $rules = [
+            'header' => 'nullable',
+            'title' => 'required',
+            'about' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
+        ];
+        //validate check request data
+        $validateData = $request->validate($rules);
+
+        // Image management using helper function
+        if ($request->hasFile('image')) {
+             // Delete previous image
+             ImageHelper::deleteImage('/images/activitie/' . $activity->image);
+
+             // Upload new image
+            $imageName = ImageHelper::uploadImage($request->file('image'), '/images/activitie/');
+            $validateData ['image'] = $imageName;
+        }
+        // Store data
+        // Update data
+        $activity->update($validateData);
+
+        //redirect
+        return redirect()->route('activities.index')->withSuccess('Activitie updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Activitie $activity)
     {
-        //
+        if($activity->image){
+            // Delete image
+            ImageHelper::deleteImage('/images/activitie/' . $activity->image);
+        }
+        $activity->delete();
+        return back()->with('success','deleted');
     }
 }

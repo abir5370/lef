@@ -19,7 +19,7 @@
             <div class="col-xs-12">
                 @if (session('success'))
                 <div class="alert alert-success">{{session('success')}}</div>
-            @endif
+               @endif
                 <!-- PAGE CONTENT BEGINS -->
                 <form class="form-horizontal" role="form" method="POST" action="{{route('sliders.store')}}"
                     enctype="multipart/form-data">
@@ -64,9 +64,8 @@
                                 <div class="widget-body">
                                     <div class="form-group">
                                         <div class="col-xs-12 col-md-12">
-                                            <label class="ace-file-input ace-file-multiple"><input type="file"
-                                                    id="imageInput" name="image" accept=".jpg, .jpeg, .png,gif"
-                                                    onchange="previewImage()" /><span class="ace-file-container"
+                                            <label class="ace-file-input ace-file-multiple"><input type="file" name="image"
+                                                    onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" /><span class="ace-file-container"
                                                     data-title="Choose Slider Image..."><span class="ace-file-name"
                                                         data-title="No File ..."><i
                                                             class=" ace-icon ace-icon fa fa-cloud-upload"></i></span></span><a
@@ -76,10 +75,9 @@
                                     </div>
                                 </div>
                             </div>
-
                             <span class="help-inline col-xs-12 col-sm-7">
-                                <label class="middle" id="imagePreviewLabel">
-                                    <img height="145" width="155" src="{{ asset('admin-asset/images/temp.png') }}"
+                                <label class="middle"">
+                                    <img height="145" id="blah" width="155" src="{{ asset('images/temp.jpg') }}"
                                         alt="Slider Image">
                                 </label>
                             </span>
@@ -100,34 +98,4 @@
         </div><!-- /.row -->
     </div><!-- /.page-content -->
 </div>
-
- {{-- live image preview  --}}
- <script>
-    function previewImage() {
-        var input = document.getElementById('imageInput');
-        var previewLabel = document.getElementById('imagePreviewLabel');
-
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                previewLabel.innerHTML = '<img src="' + e.target.result +
-                    '" alt="Image Preview" style="max-width:155px;max-height:145px;">';
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            previewLabel.innerHTML = '<span class="lbl"> Image Preview</span>';
-        }
-    }
-</script>
-
-
-
-
-
-
-
-
-
 @endsection

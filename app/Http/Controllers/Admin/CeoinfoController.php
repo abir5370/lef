@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\CeoInfo;
 use Illuminate\Http\Request;
@@ -10,15 +11,15 @@ class CeoinfoController extends Controller
 {
     public function index()
     {
-        $widget = CeoInfo::all();
+        $ceo = CeoInfo::all();
         return view('admin.ceo-info.edit',[
-            'widget'=> $widget, 
+            'ceo'=> $ceo, 
         ]);
     }
 
     public function update(Request $request)
     {
-        $widget = CeoInfo::find($request->id);
+        $ceo = CeoInfo::find($request->id);
 
         $rules = [
             'name' => 'required',
@@ -31,8 +32,19 @@ class CeoinfoController extends Controller
         // Validate input data
         $validatedData = $request->validate($rules);
 
+        // Image management using helper function
+        if ($request->hasFile('image')) {
+            // Delete previous image
+            ImageHelper::deleteImage('/images/ceo/' . $ceo->image);
+
+            // Upload new image
+            $imageName = ImageHelper::uploadImage($request->file('image'), '/images/ceo/');
+            $validatedData['image'] = $imageName;
+        }
+
         // Update data in the database
-        $widget->update($validatedData);
+        $ceo->update($validatedData);
+
         
         return back()->withSuccess('Update successful');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use App\Helpers\ImageHelper;
 
 class SliderController extends Controller
 {
@@ -32,7 +33,24 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
+        ];
+        //validate check request data
+        $validateData = $request->validate($rules);
+
+        // Image management using helper function
+        if ($request->hasFile('image')) {
+            $imageName = ImageHelper::uploadImage($request->file('image'), '/images/slider/');
+            $validateData ['image'] = $imageName;
+        }
+        // Store data
+        Slider::create($validateData);
+
+        //redirect
+        return back()->withSuccess('New Slider Create Successfull!');
     }
 
     /**
@@ -56,16 +74,43 @@ class SliderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Slider $slider)
     {
-        //
+        $rules = [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
+        ];
+        //validate check request data
+        $validateData = $request->validate($rules);
+
+        // Image management using helper function
+        if ($request->hasFile('image')) {
+            // Delete previous image
+            ImageHelper::deleteImage('/images/slider/' . $slider->image);
+
+            // Upload new image
+            $imageName = ImageHelper::uploadImage($request->file('image'), '/images/slider/');
+            $validateData['image'] = $imageName;
+        }
+
+        // Update data
+        $slider->update($validateData);
+
+        // Redirect
+        return redirect()->route('sliders.index')->withSuccess('Slider updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Slider $slider)
     {
-        //
+        if($slider->image){
+            // Delete image
+            ImageHelper::deleteImage('/images/slider/' . $slider->image);
+        }
+        $slider->delete();
+        return back()->with('success','deleted');
     }
 }

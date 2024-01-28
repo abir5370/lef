@@ -1,7 +1,5 @@
 @extends('admin.include.master')
 @section('body')
-
-
 <div class="main-content-inner font">
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
         <ul class="breadcrumb">
@@ -12,7 +10,6 @@
             <li class="active">Add Menu Information</li>
         </ul><!-- /.breadcrumb -->
     </div>
-
     <div class="page-content font">
 
         <div class="row">

@@ -36,6 +36,10 @@
                             <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
                                 colspan="1" aria-label="service Name: activate to sort column ascending">Slider Title
                             </th>
+
+                            <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
+                                colspan="1" aria-label="service Name: activate to sort column ascending">Slider Description
+                            </th>
                             
                             <th class="sorting_disabled" rowspan="1" colspan="1"
                                 aria-label="Status: activate to sort column ascending">Image</th>
@@ -55,10 +59,10 @@
                                     {{ $sn++ }}
                                 </td>
                                 <td>{{ $slider->title }}</td>
-                                
+                                <td>{{ $slider->description }}</td>
                                 <td>
                                     @if ($slider->image)
-                                        <img src="{{ asset('image/slider/' . $slider->image) }}"
+                                        <img src="{{ asset('images/slider/' . $slider->image) }}"
                                             alt="{{ $slider->name }}" style="max-width: 50px; max-height: 50px;">
                                     @else
                                         No Image

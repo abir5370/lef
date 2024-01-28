@@ -69,7 +69,7 @@
                                 <td>{{ Str::limit($activitie->about, 40) }}</td>
                                 <td>
                                     @if ($activitie->image)
-                                        <img src="{{ asset('image/activitie/' . $activitie->image) }}"
+                                        <img src="{{ asset('images/activitie/' . $activitie->image) }}"
                                             alt="{{ $activitie->name }}" style="max-width: 50px; max-height: 50px;">
                                     @else
                                         No Image

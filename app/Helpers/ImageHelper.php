@@ -21,16 +21,4 @@ class ImageHelper
     }
 }
 
-// use App\Helpers\ImageHelper;
 
-// // ...
-
-// // Image management using helper function
-// if ($request->file('image')) {
-//     $image = $request->file('image');
-//     $imageName = ImageHelper::uploadImage($image, '/image/slider/');
-//     $validateData['image'] = $imageName;
-// }
-
-// // Store data
-// Slider::create($validateData);
