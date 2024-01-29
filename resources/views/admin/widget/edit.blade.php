@@ -14,6 +14,9 @@
     <div class="page-content font">
         <div class="row">
             <div class="col-xs-12">
+                @if(session('success'))
+                  <div class="alert alert-success">{{session('success')}}</div>
+                @endif
                 <!-- PAGE CONTENT BEGINS -->
                 <form class="form-horizontal" role="form" method="POST" action="{{route('widgets.update')}}"
                     enctype="multipart/form-data">
@@ -62,7 +65,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12 col-md-12">
                                             <label class="ace-file-input ace-file-multiple"><input type="file"
-                                                    id="imageInput" name="image" onchange="previewImage()" /><span class="ace-file-container"
+                                                    id="imageInput" name="image"  onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" /><span class="ace-file-container"
                                                     data-title="Choose About Image..."><span class="ace-file-name"
                                                         data-title="No File ..."><i
                                                             class=" ace-icon ace-icon fa fa-cloud-upload"></i></span></span><a
@@ -75,7 +78,7 @@
 
                             <span class="help-inline col-xs-12 col-sm-7">
                                 <label class="middle" id="imagePreviewLabel">
-                                    <img height="145" width="155" src="{{asset('images/about/'.$widget->first()->image)}}"
+                                    <img height="145" id="blah" width="155" src="{{asset('images/about/'.$widget->first()->image)}}"
                                         alt="About Image">
                                 </label>
                             </span>
@@ -163,24 +166,4 @@
     </div>
 </div>
 @endsection
-@push('js')
-<script>
-    function previewImage() {
-        var input = document.getElementById('imageInput');
-        var previewLabel = document.getElementById('imagePreviewLabel');
 
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                previewLabel.innerHTML = '<img src="' + e.target.result +
-                    '" alt="Image Preview" style="max-width:155px;max-height:145px;">';
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            previewLabel.innerHTML = '<span class="lbl"> Image Preview</span>';
-        }
-    }
-</script>
-@endpush

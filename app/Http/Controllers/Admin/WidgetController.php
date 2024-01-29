@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Widget;
 use Illuminate\Http\Request;
@@ -33,6 +34,16 @@ class WidgetController extends Controller
         // Validate input data
         $validatedData = $request->validate($rules);
 
+        // Image management using helper function
+        if ($request->hasFile('image')) {
+            // Delete previous image
+            ImageHelper::deleteImage('/images/about/' . $widget->image);
+
+            // Upload new image
+            $imageName = ImageHelper::uploadImage($request->file('image'), '/images/about/');
+            $validatedData['image'] = $imageName;
+        }
+
         // Update data in the database
         $widget->update($validatedData);
         
@@ -41,3 +52,4 @@ class WidgetController extends Controller
     }
 
 }
+

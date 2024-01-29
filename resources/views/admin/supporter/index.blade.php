@@ -35,10 +35,6 @@
                                 S/N
                             </th>
                             <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
-                                colspan="1" aria-label="service Name: activate to sort column ascending">Head Tag
-                            </th>
-
-                            <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
                                 colspan="1" aria-label="service Name: activate to sort column ascending">Name
                             </th>
                             <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
@@ -73,11 +69,11 @@
                                 </td>
                                 <td>{{ $supporter->name }}</td>
                                 <td>{{ $supporter->email }}</td>
-                                <td>{{ Str::limit($service->short_desp, 40) }}</td>
+                                <td>{{ Str::limit($supporter->about_supporter, 40) }}</td>
                                 <td>{{ $supporter->social_link }}</td>
                                 <td>
                                     @if ($supporter->image)
-                                        <img src="{{ asset('image/supporter/' . $supporter->image) }}"
+                                        <img src="{{ asset('images/supporter/' . $supporter->image) }}"
                                             alt="{{ $supporter->name }}" style="max-width: 50px; max-height: 50px;">
                                     @else
                                         No Image

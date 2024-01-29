@@ -18,28 +18,15 @@
             @endif
             <div class="col-xs-12">
                 <!-- PAGE CONTENT BEGINS -->
-                <form class="form-horizontal" role="form" method="POST" action="{{route('supporters.store')}}"
+                <form class="form-horizontal" role="form" method="POST" action="{{route('supporters.update',$supporter->id)}}"
                     enctype="multipart/form-data">
                     @csrf
-                    {{-- Supporter heade tag  --}}
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="title">Head Tag :</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="title" id="title" placeholder="Tag line"
-                                class="col-xs-12 col-md-11 col-sm-12" />
-                            <br> <br>
-                            <span>
-                                @error('title')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </span>
-                        </div>
-                    </div>
-                    {{-- Supporter heade tag --}}
+                    @method('PUT')
+                    {{-- Supporter name --}}
                      <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="name">Supporter Name :</label>
                         <div class="col-sm-9">
-                            <input type="text" name="name" id="name" placeholder="Supporter Name"
+                            <input type="text" value="{{$supporter->name}}" name="name" id="name" placeholder="Supporter Name"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
@@ -54,7 +41,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="name">Supporter Email :</label>
                         <div class="col-sm-9">
-                            <input type="email" name="email" id="email" placeholder="Supporter email"
+                            <input type="email" value="{{$supporter->email}}" name="email" id="email" placeholder="Supporter email"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
@@ -71,7 +58,7 @@
                             :</label>
                         <div class="col-sm-9">
                             <textarea id="description" name="about_supporter" placeholder="Write about supporter" class="col-xs-12 col-md-11 col-sm-12"
-                                style="height: 150px; width: 92%;"></textarea>
+                                style="height: 150px; width: 92%;">{{$supporter->about_supporter}}</textarea>
                             <span>
                                 @error('about_supporter')
                                     <div class="text-danger">{{ $message }}</div>
@@ -84,7 +71,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="link">Supporter Social Link :</label>
                         <div class="col-sm-9">
-                            <input type="text" name="social_link" id="link" placeholder="Supporter Social Link"
+                            <input type="text" value="{{$supporter->social_link}}" name="social_link" id="link" placeholder="Supporter Social Link"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
@@ -106,8 +93,8 @@
                                             <label class="ace-file-input ace-file-multiple">
                                                 <input type="file"
                                                     id="imageInput" name="image" accept=".jpg, .jpeg, .png,gif"
-                                                    onchange="previewImage()" /><span class="ace-file-container"
-                                                    data-title="Choose Service Image..."><span class="ace-file-name"
+                                                    onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" /><span class="ace-file-container"
+                                                    data-title="Choose Supporter Image..."><span class="ace-file-name"
                                                         data-title="No File ..."><i
                                                             class=" ace-icon ace-icon fa fa-cloud-upload"></i></span></span><a
                                                     class="remove" href="#"><i
@@ -119,9 +106,9 @@
                             </div>
 
                             <span class="help-inline col-xs-12 col-sm-7">
-                                <label class="middle" id="imagePreviewLabel">
-                                    <img height="145" width="155" src="{{ asset('admin-asset/images/temp.png') }}"
-                                        alt="service Image">
+                                <label class="middle">
+                                    <img height="145" id="blah" width="155" src="{{ asset('images/supporter/'.$supporter->image) }}"
+                                        alt="Supperter Image">
                                 </label>
                             </span>
                             @error('image')
@@ -141,26 +128,5 @@
         </div><!-- /.row -->
     </div><!-- /.page-content -->
 </div>
-
- {{-- live image preview  --}}
- <script>
-    function previewImage() {
-        var input = document.getElementById('imageInput');
-        var previewLabel = document.getElementById('imagePreviewLabel');
-
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                previewLabel.innerHTML = '<img src="' + e.target.result +
-                    '" alt="Image Preview" style="max-width:155px;max-height:145px;">';
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            previewLabel.innerHTML = '<span class="lbl"> Image Preview</span>';
-        }
-    }
-</script>
 
 @endsection

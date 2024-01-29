@@ -21,21 +21,8 @@
                 <form class="form-horizontal" role="form" method="POST" action="{{route('supporters.store')}}"
                     enctype="multipart/form-data">
                     @csrf
-                    {{-- Supporter heade tag  --}}
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="title">Head Tag :</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="title" id="title" placeholder="Tag line"
-                                class="col-xs-12 col-md-11 col-sm-12" />
-                            <br> <br>
-                            <span>
-                                @error('title')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </span>
-                        </div>
-                    </div>
-                    {{-- Supporter heade tag --}}
+                    
+                    {{-- Supporter name --}}
                      <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="name">Supporter Name :</label>
                         <div class="col-sm-9">
@@ -52,7 +39,7 @@
 
                     {{-- Supporter Email --}}
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="name">Supporter Email :</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="email">Supporter Email :</label>
                         <div class="col-sm-9">
                             <input type="email" name="email" id="email" placeholder="Supporter email"
                                 class="col-xs-12 col-md-11 col-sm-12" />
@@ -104,10 +91,9 @@
                                     <div class="form-group">
                                         <div class="col-xs-12 col-md-12">
                                             <label class="ace-file-input ace-file-multiple">
-                                                <input type="file"
-                                                    id="imageInput" name="image" accept=".jpg, .jpeg, .png,gif"
-                                                    onchange="previewImage()" /><span class="ace-file-container"
-                                                    data-title="Choose Service Image..."><span class="ace-file-name"
+                                                <input type="file" name="image"
+                                                    onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" /><span class="ace-file-container"
+                                                    data-title="Choose Supporter Image..."><span class="ace-file-name"
                                                         data-title="No File ..."><i
                                                             class=" ace-icon ace-icon fa fa-cloud-upload"></i></span></span><a
                                                     class="remove" href="#"><i
@@ -119,8 +105,8 @@
                             </div>
 
                             <span class="help-inline col-xs-12 col-sm-7">
-                                <label class="middle" id="imagePreviewLabel">
-                                    <img height="145" width="155" src="{{ asset('admin-asset/images/temp.png') }}"
+                                <label class="middle">
+                                    <img height="145" id="blah" width="155" src="{{ asset('admin-asset/images/temp.png') }}"
                                         alt="service Image">
                                 </label>
                             </span>
@@ -141,26 +127,4 @@
         </div><!-- /.row -->
     </div><!-- /.page-content -->
 </div>
-
- {{-- live image preview  --}}
- <script>
-    function previewImage() {
-        var input = document.getElementById('imageInput');
-        var previewLabel = document.getElementById('imagePreviewLabel');
-
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                previewLabel.innerHTML = '<img src="' + e.target.result +
-                    '" alt="Image Preview" style="max-width:155px;max-height:145px;">';
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            previewLabel.innerHTML = '<span class="lbl"> Image Preview</span>';
-        }
-    }
-</script>
-
 @endsection
