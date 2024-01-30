@@ -2,11 +2,9 @@
 @section('body')
 <div class="main-content-inner font">
     <!-- /.breadcrumb-list -->
-    <div class="breadcrumbs-container" style="background-color: #ffceed; padding: 15px; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); margin-bottom: 20px;">
-        <ul class="breadcrumb-list" style="list-style: none; padding: 0; margin: 0; display: flex; align-items: center;">
-            <li class="active bold-text highlighted-item" style="font-weight: bold; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); color: #your-desired-text-color; padding: 10px 20px; border-radius: 8px;">
-                Edit Ceo Information
-            </li>
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li class="active">Edit Ceo Information</li>
         </ul>
     </div>
     <!-- end breadcrumb --> 

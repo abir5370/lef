@@ -14,7 +14,7 @@
             <a href="index.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    Ace Admin
+                    Leff For Life
                 </small>
             </a>
         </div>
@@ -34,16 +34,9 @@
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="#">
-                                <i class="ace-icon fa fa-cog"></i>
-                                Settings
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="profile.html">
+                            <a href="{{route('password')}}">
                                 <i class="ace-icon fa fa-user"></i>
-                                Profile
+                                Change Password
                             </a>
                         </li>
 
@@ -51,7 +44,7 @@
 
                         <li>
                             <a href="javascript:;" class="nav-link" onclick="event.preventDefault();document.getElementById('logout-form').submit()">
-                                <i data-feather="log-out"></i>
+                                <i class="ace-icon fa fa-power-off"></i>
                                 <span>Log Out</span>
                                 <form action="{{route('logout')}}" id="logout-form" method="post">
                                     @csrf
@@ -62,5 +55,5 @@
                 </li>
             </ul>
         </div>
-    </div><!-- /.navbar-container -->
+    </div>
 </div>

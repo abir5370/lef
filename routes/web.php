@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Admin\ActivitiesController;
 use App\Http\Controllers\Admin\CeoinfoController;
+use App\Http\Controllers\Admin\DonarController;
 use App\Http\Controllers\Admin\MenubarController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\SupporterController;
 use App\Http\Controllers\Admin\WidgetController;
 use Illuminate\Support\Facades\Route;
@@ -37,11 +39,18 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 
     //supporter
     Route::resource('supporters',SupporterController::class);
+
+    //staff
+    Route::resource('staffs',StaffController::class);
+    //donar
+    Route::resource('donars',DonarController::class);
     //widget-contact/address
     Route::get('/widgets',[WidgetController::class,'index'])->name('widgets.index');
     Route::post('/widgets/update',[WidgetController::class,'update'])->name('widgets.update');
 
     //profile setting
-    Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
+    Route::get('/profile-password-change',[ProfileController::class,'password'])->name('password');
+    Route::post('/password-update', [ProfileController::class, 'passwordUpdate'])->name('password.update');
+
     Route::post('/widgets/update',[WidgetController::class,'update'])->name('widgets.update');
 });

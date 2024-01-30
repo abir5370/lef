@@ -104,6 +104,61 @@
             <b class="arrow"></b>
         </li>
 
+         {{-- Staff section --}}
+         <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-graduation-cap"></i>
+                <span class="menu-text">
+                    Staff & Teacher
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('staffs.create')}}">
+                        Add Staff
+                    </a>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('staffs.index')}}">
+                        Manage Staff
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        {{-- Donar section --}}
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">
+                    Donar
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('donars.create')}}">
+                        Add Donar
+                    </a>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('donars.index')}}">
+                        Manage Donar
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
         {{-- contact section --}}
         <li class="">
             <a href="#" class="dropdown-toggle">
