@@ -3,11 +3,7 @@
 <div class="main-content-inner font">
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
         <ul class="breadcrumb">
-            <li>
-                <i class="ace-icon fa fa-cogs home-icon"></i>
-                <a href="">Activite</a>
-            </li>
-            <li class="active">Edit About & Contact Information</li>
+            <li class="active">Edit Company Primary Information</li>
         </ul><!-- /.breadcrumb -->
     </div>
     <!-- end breadcrumb --> 
@@ -15,6 +11,15 @@
     <div class="page-content font">
         <div class="row">
             <div class="col-xs-12">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 @if(session('success'))
                   <div class="alert alert-success">{{session('success')}}</div>
                 @endif
@@ -22,13 +27,14 @@
                 <form class="form-horizontal" role="form" method="POST" action="{{route('widgets.update')}}"
                     enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="id" value="{{$widget->first()->id}}">
+                    <input type="hidden" name="id" value="{{ $widget ? $widget->id : '' }}">
+
                     {{-- about headline  --}}
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="title">About Headline :</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="title">Company Title :</label>
 
                         <div class="col-sm-9">
-                            <input type="text" value="{{$widget->first()->title}}" name="title" id="title" placeholder="About Headline"
+                            <input type="text" value="{{ $widget ? $widget->title : '' }}" name="title" id="title" placeholder="Company title"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
@@ -41,12 +47,12 @@
 
                      {{-- about Description  --}}
                      <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="desp">About Description :</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="desp">Company Description :</label>
 
                         <div class="col-sm-9">
                             <textarea id="desp" name="description" 
                             class="col-xs-12 col-md-11 col-sm-12"
-                            style="height: 150px; width: 92%;">{{$widget->first()->description}}</textarea>
+                            style="height: 150px; width: 92%;">{{ $widget ? $widget->description : '' }}</textarea>
                             <br> <br>
                             <span>
                                 @error('description')
@@ -59,7 +65,7 @@
                     {{-- about image --}}
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="image">About Image :</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="image"> Image :</label>
                         <div class="col-sm-9">
                             <div class="col-sm-5">
                                 <div class="widget-body">
@@ -67,7 +73,7 @@
                                         <div class="col-xs-12 col-md-12">
                                             <label class="ace-file-input ace-file-multiple"><input type="file"
                                                     id="imageInput" name="image"  onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" /><span class="ace-file-container"
-                                                    data-title="Choose About Image..."><span class="ace-file-name"
+                                                    data-title="Choose Company Image..."><span class="ace-file-name"
                                                         data-title="No File ..."><i
                                                             class=" ace-icon ace-icon fa fa-cloud-upload"></i></span></span><a
                                                     class="remove" href="#"><i
@@ -79,7 +85,7 @@
 
                             <span class="help-inline col-xs-12 col-sm-7">
                                 <label class="middle" id="imagePreviewLabel">
-                                    <img height="145" id="blah" width="155" src="{{asset('images/about/'.$widget->first()->image)}}"
+                                    <img height="145" id="blah" width="155" src="{{ $widget && $widget->image ? asset('images/about/'.$widget->image) : '' }}"
                                         alt="About Image">
                                 </label>
                             </span>
@@ -89,14 +95,12 @@
                         </div>
                     </div>
 
-
-
                     {{-- email  --}}
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="email">Email :</label>
 
                         <div class="col-sm-9">
-                            <input type="email" value="{{$widget->first()->email}}" name="email" id="email" placeholder="email"
+                            <input type="email" value="{{ $widget ? $widget->email : '' }}" name="email" id="email" placeholder="email"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
@@ -112,7 +116,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="number">Number :</label>
 
                         <div class="col-sm-9">
-                            <input type="number" value="{{$widget->first()->number}}" name="number" id="number" placeholder="number"
+                            <input type="number" value="{{ $widget ? $widget->number : '' }}" name="number" id="number" placeholder="number"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
@@ -130,7 +134,7 @@
                         <div class="col-sm-9">
                             <textarea id="address" name="address" 
                             class="col-xs-12 col-md-11 col-sm-12"
-                            style="height: 150px; width: 92%;">{{$widget->first()->address}}</textarea>
+                            style="height: 150px; width: 92%;">{{ $widget ? $widget->address : '' }}</textarea>
                             <br> <br>
                             <span>
                                 @error('address')
@@ -145,11 +149,11 @@
                         <label class="col-sm-3 control-label no-padding-right" for="map">Map link :</label>
 
                         <div class="col-sm-9">
-                            <input type="text" value="{{$widget->first()->map_link}}" name="map_link" id="map" placeholder="map link here"
+                            <input type="text" value="{{ $widget ? $widget->map_link : '' }}" name="map_link" id="map" placeholder="map link here"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                             <span>
-                                @error('link')
+                                @error('map_link')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </span>
@@ -167,4 +171,3 @@
     </div>
 </div>
 @endsection
-

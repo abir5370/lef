@@ -7,11 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Widget;
 use Illuminate\Http\Request;
 
+
 class WidgetController extends Controller
 {
     public function index()
     {
-        $widget = Widget::all();
+        $widget = Widget::first();
         return view('admin.widget.edit',[
             'widget'=> $widget, 
         ]);
@@ -19,8 +20,7 @@ class WidgetController extends Controller
 
     public function update(Request $request)
     {
-        $widget = Widget::find($request->id);
-
+       
         $rules = [
             'title' => 'required',
             'description' => 'required',
@@ -30,26 +30,29 @@ class WidgetController extends Controller
             'map_link' => 'nullable',
             'image' => 'file|mimes:jpeg,png,jpg,gif|max:4096',
         ];
-
+        
         // Validate input data
         $validatedData = $request->validate($rules);
+        
+        // Find or create the widget
+        $widget = Widget::updateOrCreate(['id' => $request->id], $validatedData);
 
         // Image management using helper function
         if ($request->hasFile('image')) {
-            // Delete previous image
-            ImageHelper::deleteImage('/images/about/' . $widget->image);
-
+            // Delete previous image if it exists
+            if ($widget->image) {
+                ImageHelper::deleteImage('/images/about/' . $widget->image);
+            }
             // Upload new image
             $imageName = ImageHelper::uploadImage($request->file('image'), '/images/about/');
-            $validatedData['image'] = $imageName;
+            $widget->image = $imageName;
         }
-
-        // Update data in the database
-        $widget->update($validatedData);
+        // Save changes to the widget
+        $widget->save();
         
         return back()->withSuccess('Update successful');
-
     }
 
 }
+
 

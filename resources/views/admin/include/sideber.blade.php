@@ -68,12 +68,12 @@
         </li>
 
 
-        {{-- Activities --}}
+        {{-- we do --}}
         <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-cogs"></i>
                 <span class="menu-text">
-                    Activities
+                    We Do
                 </span>
 
                 <b class="arrow fa fa-angle-down"></b>
@@ -82,14 +82,14 @@
             <ul class="submenu">
                 <li class="">
                     <a href="{{route('activities.create')}}">
-                        Add Activitie
+                        Add We Do
                     </a>
                 </li>
             </ul>
             <ul class="submenu">
                 <li class="">
                     <a href="{{route('activities.index')}}">
-                        Manage Activitie
+                        Manage We Do
                     </a>
                 </li>
             </ul>
@@ -102,6 +102,34 @@
                 <span class="menu-text"> CeoInfo </span>
             </a>
             <b class="arrow"></b>
+        </li>
+
+        {{-- supporter section --}}
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-support"></i> 
+
+                <span class="menu-text">
+                    Supporter
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('supporters.create')}}">
+                        Add supporter
+                    </a>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('supporters.index')}}">
+                        Manage supporter
+                    </a>
+                </li>
+            </ul>
         </li>
 
          {{-- Staff section --}}
@@ -158,14 +186,12 @@
             </ul>
         </li>
 
-
-        {{-- contact section --}}
+        {{-- Donar section --}}
         <li class="">
             <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-support"></i> 
-
+                <i class="menu-icon fa fa-user"></i>
                 <span class="menu-text">
-                    Supporter
+                    Product Area
                 </span>
 
                 <b class="arrow fa fa-angle-down"></b>
@@ -173,15 +199,15 @@
 
             <ul class="submenu">
                 <li class="">
-                    <a href="{{route('supporters.create')}}">
-                        Add supporter
+                    <a href="{{route('categories.index')}}">
+                        Category
                     </a>
                 </li>
             </ul>
             <ul class="submenu">
                 <li class="">
-                    <a href="{{route('supporters.index')}}">
-                        Manage supporter
+                    <a href="{{route('products.index')}}">
+                        Product Info
                     </a>
                 </li>
             </ul>
@@ -199,10 +225,39 @@
             </a>
         </li> --}}
 
+        
+         {{-- Donar section --}}
+         <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">
+                    Activities
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('categories.index')}}">
+                        Category
+                    </a>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('products.index')}}">
+                        Product Info
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <li class="">
             <a href="{{route('widgets.index')}}">
-                <i class="menu-icon fa fa-list-alt"></i>
-                <span class="menu-text"> Widgets </span>
+                <i class="menu-icon fa fa-gear"></i>
+
+                <span class="menu-text"> Company Setting </span>
             </a>
             <b class="arrow"></b>
         </li>
