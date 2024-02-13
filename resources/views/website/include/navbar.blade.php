@@ -3,9 +3,12 @@
     <div class="container">
         <div class="d-flex justify-content-between topbar py-2">
             <div class="d-flex align-items-center flex-shrink-0 topbar-info">
-                <a href="#" class="me-4 text-secondary"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Plot No. 1429, Vatara, Dhaka-1212, Bangladesh</a>
-                <a href="#" class="me-4 text-secondary"><i class="fas fa-phone-alt me-2 text-dark"></i>+8801712948792</a>
-                <a href="#" class="text-secondary"><i class="fas fa-envelope me-2 text-dark"></i>info@lefforlife.org</a>
+                @php
+                    $widget = App\Models\Widget::first();
+                @endphp
+                <a href="#" class="me-4 text-secondary"><i class="fas fa-map-marker-alt me-2 text-dark"></i>{{$widget->address ?? ''}}</a>
+                <a href="#" class="me-4 text-secondary"><i class="fas fa-phone-alt me-2 text-dark"></i>+88{{$widget->number ?? ''}}</a>
+                <a href="#" class="text-secondary"><i class="fas fa-envelope me-2 text-dark"></i>{{$widget->email ?? ''}}</a>
             </div>
             <div class="text-end pe-4 me-4 border-end border-dark search-btn">
                 <div class="search-form">
@@ -20,10 +23,8 @@
                 </div>
             </div>
             <div class=" copyright-btn text-center text-md-start mb-3 mb-md-0 flex-shrink-0">
-                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-youtube"></i></a>
-                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href="{{$widget->fb_link ?? ''}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href="{{$widget->youtube_link ?? ''}}"><i class="fab fa-youtube" target="_blank"></i></a>
             </div>
         </div>
     </div>
@@ -36,31 +37,32 @@
     <div class="container">
         <nav class="navbar bg-nave navbar-expand-lg py-lg-0">
             <a href="index.html" class="navbar-brand">
-
-                <img class="navimg" src="img/logo/logo.png" alt="Company logo">
+                @php
+                  $widget = App\Models\Logo::first();
+                @endphp
+                <img class="navimg" src="{{asset('images/logo/'.$widget->image)}}" alt="Company logo">
 
                 <h1 class="text-primary mb-0 display-5 navh1">
                     LEF For<span class="text-white"> Life</span>
                 </h1>
-
             </a>
             <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars text-dark"></span>
             </button>
             <div class="collapse navbar-collapse me-n3" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About Us</a>
-                    <a href="activities.html" class="nav-item nav-link">Activities</a>
-                    <a href="project.html" class="nav-item nav-link">Our Success</a>
+                    <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
+                    <a href="{{route('aboutus')}}" class="nav-item nav-link">About Us</a>
+                    <a href="{{route('activitiepage')}}" class="nav-item nav-link">Activities</a>
+                    <a href="{{route('oursuccess')}}" class="nav-item nav-link">Our Success</a>
 
                     
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">The Latest</a>
                         <div class="dropdown-menu m-0 bg-primary">
-                            <a href="price.html" class="dropdown-item">Photos </a>
-                            <a href="blog.html" class="dropdown-item">Videos</a>
-                            <a href="team.html" class="dropdown-item">Newsletter</a>
+                            <a href="{{route('photo.gallery')}}" class="dropdown-item">Photos </a>
+                            <a href="{{route('latest.videos')}}" class="dropdown-item">Videos</a>
+                            <a href="{{route('news.letter')}}" class="dropdown-item">Newsletter</a>
                             <a href="testimonial.html" class="dropdown-item">PDF</a>
                         </div>
                     </div>
@@ -79,7 +81,7 @@
                     </div>
 
                     <a href="house.html" class="nav-item nav-link">Guest House</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                 </div>
             </div>
         </nav>

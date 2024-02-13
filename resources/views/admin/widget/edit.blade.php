@@ -134,10 +134,40 @@
                         <div class="col-sm-9">
                             <textarea id="address" name="address" 
                             class="col-xs-12 col-md-11 col-sm-12"
-                            style="height: 150px; width: 92%;">{{ $widget ? $widget->address : '' }}</textarea>
+                            style="height: 80px; width: 92%;">{{ $widget ? $widget->address : '' }}</textarea>
                             <br> <br>
                             <span>
                                 @error('address')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </span>
+                        </div>
+                    </div>
+                    {{-- fb_link link --}}
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="map">Fb link :</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" value="{{ $widget ? $widget->fb_link : '' }}" name="fb_link" id="map" placeholder="fb link here"
+                                class="col-xs-12 col-md-11 col-sm-12" />
+                            <br> <br>
+                            <span>
+                                @error('fb_link')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </span>
+                        </div>
+                    </div>
+                    {{-- youtube_link link --}}
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="map">Youtube link :</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" value="{{ $widget ? $widget->youtube_link : '' }}" name="youtube_link" id="map" placeholder="youtube link here"
+                                class="col-xs-12 col-md-11 col-sm-12" />
+                            <br> <br>
+                            <span>
+                                @error('youtube_link')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </span>

@@ -68,6 +68,8 @@ body{
     background-color: #feefc8;
 }
 
+
+
 .orphanage-img {
   border-radius: 1rem; /* Initial border radius */
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3); /* Subtle initial shadow */
@@ -228,6 +230,58 @@ body{
     padding: 4px;
   }
 }
+
+/*** Our Success  Start ***/
+
+
+
+.container-blog {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-content-blog {
+  text-align: justify;
+}
+
+.image-blog {
+  float: left; /* Right-align the image */
+  margin: 5px 15px ; /* Add spacing around the image */
+  width: 250px; /* Adjust image width as needed */
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease-in-out;
+}
+
+.image-blog-2 {
+  float: left; /* Right-align the image */
+  margin: 5px 15px ; /* Add spacing around the image */
+  width: 450px; /* Adjust image width as needed */
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease-in-out;
+}
+
+.image-blog:hover {
+  transform: scale(1.1);
+}
+
+.blog-h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.blog-p {
+  font-size: 18px;
+  line-height: 1.5;
+   /* Fix potential layout issues */
+}
+
+
+
+/*** Our Success  END ***/
 
 
 
@@ -494,7 +548,11 @@ body{
 }
 
 .herofont3{
-    font-size: 38px;
+    font-size: 38px !important;
+}
+
+.herofont4{
+    font-size: 20px !important;
 }
 
 .carousel-item {
@@ -1390,6 +1448,7 @@ iframe {
 .product_content h4.product_name {
   font-weight: 700;
   line-height: 22px;
+  color: var(--org-color);
   display: inline-block;
   font-size: 14px;
   margin-bottom: 5px;

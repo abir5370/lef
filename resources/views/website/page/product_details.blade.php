@@ -1,4 +1,5 @@
 @extends('website.include.master')
+@section('title','LEF For Life | Product-details')
 @section('body')
 <link rel="stylesheet" href="{{asset('frontend/product')}}/assets/css/slick.css">
 

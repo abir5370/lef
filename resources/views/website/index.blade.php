@@ -1,4 +1,5 @@
 @extends('website.include.master')
+@section('title','LEF For Life')
 @section('body')
  <!-- Carousel Start -->
  <div class="container-fluid carousel px-0 mb-5 pb-5">
@@ -50,9 +51,12 @@
 <!-- Blog Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
+        @php
+            $aboutBasic = App\Models\AboutBasic::first();
+        @endphp
         <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
             <h1 class="display-5">What we do</h1>
-            <h5 class="mb-2 px-3 py-1 text-dark " style="text-align: justify;">LEF FOR LIFE is a non-profit Organization founded to Love, Educate and Feed ( LEF stands for Love, Education and Food) under privileged people, specially under privileged children who experience hunger in their daily life. Without the support of LEF FOR LIFE, these children receive no education, they have to work from a very young age, and they face a lifetime of poverty, illiteracy and injustice. By providing Love, Education and Food, LEF for LIFE empowers these children to create a better life for themselves and their communities.</h5>
+            <h5 class="mb-2 px-3 py-1 text-dark " style="text-align: justify;">{{$aboutBasic->we_do_content??''}}</h5>
             
         </div>
         <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay=".5s">
@@ -89,6 +93,9 @@
             </div>
 
             <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 wow fadeInUp d-none d-lg-block" data-wow-delay=".3s">
+                @php
+                $widget = App\Models\Widget::first();
+               @endphp
                 <div class="custom-block-wrap">
                     <div class="custom-block">
                         <div class=" ceo embed-responsive embed-responsive-16by9">
@@ -102,9 +109,9 @@
 
                                 <div class="social-icon">
                                     <div class="d-flex justify-content-center col-lg col-md-12">
-                                        <a class="px-2  " target="_blank" href="https://www.youtube.com/@lefforlife"><i class="fab fa-youtube fa-2x text-dark">YOUTUBE</i></a>
-                                        <a class="pe-2  " target="_blank" href="https://www.facebook.com/LEFDhaka"><i class="fab fa-facebook-f fa-2x text-dark">ACEBOOK</i></a>
-                                        <a class="px-2  " target="_blank" href="https://www.youtube.com/@lefforlife"><i class="fab fa-brands fa-whatsapp fa-2x text-dark">WhatsApp</i></a>
+                                        <a class="px-2  " target="_blank" href="{{$widget->youtube_link ?? ''}}"><i class="fab fa-youtube fa-2x text-dark">YOUTUBE</i></a>
+                                        <a class="pe-2  " target="_blank" href="{{$widget->fb_link ?? ''}}"><i class="fab fa-facebook-f fa-2x text-dark">ACEBOOK</i></a>
+                                        <a class="px-2  " target="_blank" href="{{$widget->number ?? ''}}"><i class="fab fa-brands fa-whatsapp fa-2x text-dark">WhatsApp</i></a>
                                     </div>
                                 </div>
                         </div>

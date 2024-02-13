@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('activitie_programs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('icon');
+            $table->text('icon')->nullable();
             $table->text('details');
             $table->text('image');
             $table->timestamps();

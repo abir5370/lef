@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ActivitiePrograms extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
 }

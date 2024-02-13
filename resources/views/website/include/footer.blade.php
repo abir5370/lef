@@ -58,10 +58,8 @@
                 <a href="#" class="text-primary mb-0 display-6">LEF FOR <span class="text-white">LIFE</span></a>
             </div>
             <div class="col-md-4 copyright-btn text-center text-md-start mb-3 mb-md-0 flex-shrink-0">
-                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-youtube"></i></a>
-                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href="{{$widget->fb_link ?? ''}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href="{{$widget->youtube_link ?? ''}}" target="_blank"><i class="fab fa-youtube" target="_blank"></i></a>
             </div>
             <div class="col-md-4 my-auto text-center text-md-end text-white">
                 © 2024 <a class="border-bottom" href="https://lefforlife.org/">lefforlife.org</a>

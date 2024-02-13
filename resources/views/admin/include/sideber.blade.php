@@ -12,13 +12,333 @@
 
             <b class="arrow"></b>
         </li>
-
-        {{-- slider-section --}}
+        {{-- start home section --}}
         <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-desktop"></i>
                 <span class="menu-text">
-                    MenuBar
+                    Home
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Slider
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('sliders.create')}}">
+                                Add Slider
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('sliders.index')}}">
+                                Manage Slider
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        We Do
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('activities.create')}}">
+                                Add We Do
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('activities.index')}}">
+                                Manage We Do
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('ceos.index')}}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        CeoInfo
+                    </a>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Supporter
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('supporters.create')}}">
+                                Add supporter
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('supporters.index')}}">
+                                Manage supporter
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        {{-- end home section --}}
+
+        {{-- start-about-section --}}
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-desktop"></i>
+                <span class="menu-text">
+                    About US
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Basic Info
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('aboutbasics.basic')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Basic Content
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('aboutbasics.image')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Image
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Facilities
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('facilities.create')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Add Facilitie
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('facilities.index')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Facilitie List
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Board Member
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('boardmembers.create')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Add Member
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('boardmembers.index')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Member List
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Staff & Teacher
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('staffs.create')}}">
+                                Add Staff
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('staffs.index')}}">
+                                Manage Staff
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+
+                        Donar
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('donars.create')}}">
+                                Add Donar
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('donars.index')}}">
+                                Manage Donar
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('bank.info')}}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Banking Info
+                    </a>
+                </li>
+            </ul>
+        </li>
+        {{-- end-about-section --}}
+
+        {{-- start-activitie-section --}}
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">
+                    Activities
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('activitiebasics.basic')}}">
+                       Basic Info
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('activitiegallerys.index')}}">
+                        Gallery Image
+                    </a>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('activitieprograms.index')}}">
+                        Activite & Program
+                    </a>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('activitieothers.index')}}">
+                        Activite & Other
+                    </a>
+                </li>
+            </ul>
+        </li>
+        {{-- end activitie section --}}
+
+        {{--start-our-success-section--}}
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">
+                    Our Success
                 </span>
 
                 <b class="arrow fa fa-angle-down"></b>
@@ -26,22 +346,100 @@
 
             <ul class="submenu">
                 <li class="">
-                    <a href="{{route('menubars.create')}}">
-                        Add Menu
+                    <a href="{{route('success.basic')}}">
+                        Basic Info
                     </a>
                 </li>
             </ul>
             <ul class="submenu">
                 <li class="">
-                    <a href="{{route('menubars.index')}}">
-                        Manage Menu
+                    <a href="{{route('oursuccess.index')}}">
+                        Success Story
                     </a>
                 </li>
             </ul>
         </li>
+        {{--end-our-success-section--}}
+
+          {{-- start-latest-section --}}
+          <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-desktop"></i>
+                <span class="menu-text">
+                    The Latest
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Photos
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('year.photo')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Year
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('latesphotos.index')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Photo Gallery
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Newsletter
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="{{route('year.newletter')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Year
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="{{route('newsletters.index')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Newsletter
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>   
+        </li>
+        {{-- end-latest-section --}}
+
+      
 
         {{-- slider-section --}}
-        <li class="">
+        {{-- <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-desktop"></i>
                 <span class="menu-text">
@@ -65,11 +463,11 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
 
         {{-- we do --}}
-        <li class="">
+        {{-- <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-cogs"></i>
                 <span class="menu-text">
@@ -93,19 +491,19 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
          {{-- ceo information --}}
-         <li class="">
+         {{-- <li class="">
             <a href="{{route('ceos.index')}}">
                 <i class="menu-icon fa fa-list-alt"></i>
                 <span class="menu-text"> CeoInfo </span>
             </a>
             <b class="arrow"></b>
-        </li>
+        </li> --}}
 
         {{-- supporter section --}}
-        <li class="">
+        {{-- <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-support"></i> 
 
@@ -130,10 +528,10 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
          {{-- Staff section --}}
-         <li class="">
+         {{-- <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-graduation-cap"></i>
                 <span class="menu-text">
@@ -157,10 +555,10 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
         {{-- Donar section --}}
-        <li class="">
+        {{-- <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-user"></i>
                 <span class="menu-text">
@@ -184,9 +582,9 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
-        {{-- Donar section --}}
+        {{-- product section --}}
         <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-user"></i>
@@ -226,12 +624,80 @@
         </li> --}}
 
         
-         {{-- Donar section --}}
+         
+         {{-- activitie section --}}
          <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-user"></i>
                 <span class="menu-text">
-                    Activities
+                    GuestHouse
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('gursthouesegallerys.basic')}}">
+                       Basic Info
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('gursthouesegallerys.index')}}">
+                       Guest Gallery Image
+                    </a>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('activitieprograms.index')}}">
+                        Activite & Program
+                    </a>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('activitieothers.index')}}">
+                        Activite & Other
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+         {{-- activitie section --}}
+         <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">
+                    Company Setting 
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('widgets.index')}}">
+                       Basic Info
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('widgets.logo')}}">
+                       Logo
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">
+                    User
                 </span>
 
                 <b class="arrow fa fa-angle-down"></b>
@@ -239,322 +705,52 @@
 
             <ul class="submenu">
                 <li class="">
-                    <a href="{{route('categories.index')}}">
-                        Category
+                    <a href="{{route('donars.create')}}">
+                        Add Donar
                     </a>
                 </li>
             </ul>
             <ul class="submenu">
                 <li class="">
-                    <a href="{{route('products.index')}}">
-                        Product Info
+                    <a href="{{route('donars.index')}}">
+                        Manage Donar
                     </a>
                 </li>
             </ul>
         </li>
 
-        <li class="">
+
+        {{-- <li class="">
             <a href="{{route('widgets.index')}}">
                 <i class="menu-icon fa fa-gear"></i>
 
                 <span class="menu-text"> Company Setting </span>
             </a>
             <b class="arrow"></b>
-        </li>
+        </li> --}}
 
+       
 
 
 
 
 
+       
 
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-desktop"></i>
-                <span class="menu-text">
-                    UI &amp; Elements
-                </span>
 
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
 
-            <b class="arrow"></b>
 
-            <ul class="submenu">
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-caret-right"></i>
 
-                        Layouts
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
 
-                    <b class="arrow"></b>
 
-                    <ul class="submenu">
-                        <li class="">
-                            <a href="top-menu.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Top Menu
-                            </a>
 
-                            <b class="arrow"></b>
-                        </li>
 
-                        <li class="">
-                            <a href="two-menu-1.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Two Menus 1
-                            </a>
 
-                            <b class="arrow"></b>
-                        </li>
 
-                        <li class="">
-                            <a href="two-menu-2.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Two Menus 2
-                            </a>
 
-                            <b class="arrow"></b>
-                        </li>
+       
 
-                        <li class="">
-                            <a href="mobile-menu-1.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Default Mobile Menu
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="mobile-menu-2.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Mobile Menu 2
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="mobile-menu-3.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Mobile Menu 3
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="">
-                    <a href="typography.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Typography
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="elements.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Elements
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="buttons.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Buttons &amp; Icons
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="content-slider.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Content Sliders
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="treeview.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Treeview
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="jquery-ui.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        jQuery UI
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="nestable-list.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Nestable Lists
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-caret-right"></i>
-
-                        Three Level Menu
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-
-                    <ul class="submenu">
-                        <li class="">
-                            <a href="#">
-                                <i class="menu-icon fa fa-leaf green"></i>
-                                Item #1
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="#" class="dropdown-toggle">
-                                <i class="menu-icon fa fa-pencil orange"></i>
-
-                                4th level
-                                <b class="arrow fa fa-angle-down"></b>
-                            </a>
-
-                            <b class="arrow"></b>
-
-                            <ul class="submenu">
-                                <li class="">
-                                    <a href="#">
-                                        <i class="menu-icon fa fa-plus purple"></i>
-                                        Add Product
-                                    </a>
-
-                                    <b class="arrow"></b>
-                                </li>
-
-                                <li class="">
-                                    <a href="#">
-                                        <i class="menu-icon fa fa-eye pink"></i>
-                                        View Products
-                                    </a>
-
-                                    <b class="arrow"></b>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-list"></i>
-                <span class="menu-text"> Tables </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="tables.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Simple &amp; Dynamic
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="jqgrid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        jqGrid plugin
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-        </li>
-
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-pencil-square-o"></i>
-                <span class="menu-text"> Forms </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="form-elements.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Form Elements
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="form-elements-2.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Form Elements 2
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="form-wizard.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Wizard &amp; Validation
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="wysiwyg.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Wysiwyg &amp; Markdown
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="dropzone.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Dropzone File Upload
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-        </li>
-
+       
         {{-- <li class="">
             <a href="{{route('widgets.index')}}">
                 <i class="menu-icon fa fa-list-alt"></i>
@@ -564,21 +760,7 @@
             <b class="arrow"></b>
         </li> --}}
 
-        <li class="">
-            <a href="calendar.html">
-                <i class="menu-icon fa fa-calendar"></i>
-
-                <span class="menu-text">
-                    Calendar
-
-                    <span class="badge badge-transparent tooltip-error" title="2 Important Events">
-                        <i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-                    </span>
-                </span>
-            </a>
-
-            <b class="arrow"></b>
-        </li>
+      
 
         <li class="">
             <a href="gallery.html">
@@ -589,153 +771,7 @@
             <b class="arrow"></b>
         </li>
 
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-tag"></i>
-                <span class="menu-text"> More Pages </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="profile.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        User Profile
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="inbox.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Inbox
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="pricing.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Pricing Tables
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="invoice.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Invoice
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="timeline.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Timeline
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="search.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Search Results
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="email.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Email Templates
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="login.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Login &amp; Register
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-        </li>
-
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-file-o"></i>
-
-                <span class="menu-text">
-                    Other Pages
-
-                    <span class="badge badge-primary">5</span>
-                </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="faq.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        FAQ
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="error-404.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Error 404
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="error-500.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Error 500
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="grid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Grid
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="blank.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Blank Page
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-        </li>
+        
     </ul><!-- /.nav-list -->
 
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">

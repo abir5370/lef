@@ -64,7 +64,7 @@
                                 </td>
                                 <td>{{ $donar->name }}</td>
                                 <td>{{ $donar->title }}</td>
-                                <td>{{ $donar->social_icon }}</td>
+                                <td>{{ $donar->social_link }}</td>
                                 <td>
                                     @if ($donar->image)
                                         <img src="{{ asset('images/donars/' . $donar->image) }}"

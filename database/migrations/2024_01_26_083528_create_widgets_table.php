@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('number');
             $table->text('address')->nullable();
-            $table->string('map_link')->nullable();
+            $table->text('fb_link')->nullable();
+            $table->text('youtube_link')->nullable();
+            $table->text('map_link')->nullable();
             $table->timestamps();
         });
     }
