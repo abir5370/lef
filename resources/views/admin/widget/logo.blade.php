@@ -46,7 +46,7 @@
                             </div>
                             <span class="help-inline col-xs-12 col-sm-7">
                                 <label class="middle"">
-                                    <img height="145" id="blah" width="155" src="{{ asset('images/logo/'.$logo->image) }}"
+                                    <img height="145" id="blah" width="155" src="{{ asset('images/logo/'.($logo->image??'')) }}"
                                         alt="Image">
                                 </label>
                             </span>

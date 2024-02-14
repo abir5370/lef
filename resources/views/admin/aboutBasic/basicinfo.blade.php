@@ -19,7 +19,7 @@
                 <form class="form-horizontal" role="form" method="POST" action="{{route('aboutbasics.store')}}"
                     enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="id" value="{{$activitiebasic->id}}">
+                    <input type="hidden" name="id" value="{{$activitiebasic->id??''}}">
                     {{-- activitie title  --}}
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="slider_name">About Slide Title :</label>
@@ -53,7 +53,7 @@
                             </div>
                             <span class="help-inline col-xs-12 col-sm-7">
                                 <label class="middle">
-                                    <img height="145" id="blah" width="155" src="{{ asset('images/basicAbout/'.$activitiebasic->image) }}"
+                                    <img height="145" id="blah" width="155" src="{{ asset('images/basicAbout/'.($activitiebasic->image??'')) }}"
                                         alt="Image">
                                 </label>
                             </span>

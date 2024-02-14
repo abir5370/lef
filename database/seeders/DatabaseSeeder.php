@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GuestHouseBasicSeeder::class);
         $this->call(SuccessBasic::class);
         $this->call(SeoInfoSeeder::class);
+        $this->call(BankSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
