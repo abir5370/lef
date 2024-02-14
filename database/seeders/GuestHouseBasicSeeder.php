@@ -17,7 +17,6 @@ class GuestHouseBasicSeeder extends Seeder
             'name' => 'name',
             'title' => 'title',
             'details' => 'details',
-            'image' => '4556.jpg',
             'slideDownDetails' => 'slideDownDetails',
             'vdo_link' => 'vdo_link',
             'bottom_content' => 'bottom_content',
