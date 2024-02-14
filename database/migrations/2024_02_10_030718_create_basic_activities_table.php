@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('details');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('gallery_header', 500);
             $table->string('vdo_header', 500);
             $table->text('vdo_link'); 
