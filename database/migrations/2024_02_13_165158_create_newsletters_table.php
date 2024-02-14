@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('newsletters', function (Blueprint $table) {
             $table->id();
-            $table->integer('newsletter_yearId');
+            $table->integer('year_id');
             $table->string('title',150);
             $table->string('details',500);
             $table->string('image');
+            $table->text('online_link');
+            $table->text('download_link');
             $table->timestamps();
         });
     }

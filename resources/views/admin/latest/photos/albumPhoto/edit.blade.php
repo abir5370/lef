@@ -23,8 +23,9 @@
                 </div>
             </div>
             <div class="row justify-content-center" style="margin-top: 15px; margin-left: 10px;">
-                    <form action="{{route('oursuccess.store')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{route('latesphotos.update',$latesphoto->id)}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                      {{-- Donar name  --}}
                      <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="title">year :</label>
@@ -33,7 +34,7 @@
                             <select name="year_id" id="" class="col-xs-12 col-md-11 col-sm-12">
                                 <option value="">select year</option>
                                 @foreach ($years as $year)
-                                <option value="{{$year->id}}">{{$year->year}}</option>
+                                  <option value="{{$year->id}}" {{ ($year->id == $latesphoto->year_id?'selected':'') }}>{{$year->year}}</option>
                                 @endforeach
                             </select>
                             <br> <br>
@@ -44,7 +45,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="title">Title :</label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="title" id="title" placeholder="title"
+                            <input type="text" name="title" value="{{$latesphoto->title}}" id="title" placeholder="title"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                         </div>
@@ -55,7 +56,7 @@
                         <div class="col-sm-9">
                             <textarea id="desp" name="details" 
                             class="col-xs-12 col-md-11 col-sm-12"
-                            style="height: 80px; width: 92%;"></textarea>
+                            style="height: 80px; width: 92%;">{{$latesphoto->details}}</textarea>
                             <br> <br>
                         </div>
                     </div>
@@ -79,7 +80,7 @@
                             </div>
                             <span class="help-inline col-xs-12 col-sm-7">
                                 <label class="middle">
-                                    <img height="145" id="blah" width="155" src="{{ asset('images/temp.jpg') }}"
+                                    <img height="145" id="blah" width="155" src="{{ asset('images/latest/photoAlbum/' . $latesphoto->image) }}"
                                         alt="Image">
                                 </label>
                             </span>
@@ -110,8 +111,10 @@
                             <span class="help-inline col-xs-12 col-sm-7">
                                 <div id="image-preview-container">
                                     <label class="middle">
-                                        <img height="145" id="blah" width="155" src="{{ asset('images/temp.jpg') }}"
+                                        @foreach ($photos as $photo)
+                                            <img height="40" id="blah" width="40" src="{{ asset('images/latest/photoGalleryImg/' . $photo->albumGalleryImage) }}"
                                             alt="Image">
+                                        @endforeach
                                     </label>
                                 </div>
                             </span>
@@ -139,8 +142,8 @@
     
                     reader.onload = function (e) {
                         var imgElement = document.createElement('img');
-                        imgElement.setAttribute('height', '50'); // Adjusted height
-                        imgElement.setAttribute('width', '50');  // Adjusted width
+                        imgElement.setAttribute('height', '40'); // Adjusted height
+                        imgElement.setAttribute('width', '40');  // Adjusted width
                         imgElement.src = e.target.result;
     
                         previewContainer.appendChild(imgElement);

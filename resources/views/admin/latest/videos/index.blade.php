@@ -6,7 +6,7 @@
     $donarCount = $albums->count();    
     ?>
     
-    <h3 class="header smaller lighter blue">All Newletter ({{ $donarCount }})</h3>
+    <h3 class="header smaller lighter blue">All Videos ({{ $donarCount }})</h3>
     <!-- div.dataTables_borderWrap -->
     <div>
         {{-- message --}}
@@ -27,7 +27,7 @@
 
         <div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline no-footer">
             <form class="col-md-offset-3 text-right">
-                <a href="{{route('newsletters.create')}}" class="align-items-center btn btn-theme">
+                <a href="{{route('videos.create')}}" class="align-items-center btn btn-theme">
                     <i data-feather="plus"></i>Add New
                 </a>
             </form>
@@ -40,22 +40,11 @@
                                 S/N
                             </th>
                             <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
-                                colspan="1" aria-label="service Name: activate to sort column ascending">year
-                            </th>
-                            <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
                                 colspan="1" aria-label="service Name: activate to sort column ascending">Title
                             </th>
                             <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
-                                colspan="1" aria-label="service Name: activate to sort column ascending">Onlinle Link
+                                colspan="1" aria-label="service Name: activate to sort column ascending">Link
                             </th>
-                            <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
-                                colspan="1" aria-label="service Name: activate to sort column ascending">DownloadLink
-                            </th>
-
-                            <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
-                                colspan="1" aria-label="service Name: activate to sort column ascending">Description
-                            </th>
-
                             <th class="sorting_disabled" rowspan="1" colspan="1"
                                 aria-label="Status: activate to sort column ascending">Image</th>
                             
@@ -73,26 +62,19 @@
                             <td class="center">
                                 {{ $sn++ }}
                             </td>
-                            @if ($succes->newsletter)
-                                <td>{{ $succes->newsletter->year }}</td>
-                            @else
-                                <td>No Photo Year available</td>
-                            @endif
                             <td>{{ $succes->title }}</td>
-                            <td>{{ Str::limit($succes->online_link, 40)}} </td>
-                            <td>{{ Str::limit($succes->download_link, 40) }}</td>
-                            <td>{{  Str::limit($succes->details, 40) }}</td> 
+                            <td>{{ Str::limit($succes->link, 40)}} </td>
                             <td>
                                 @if ($succes->image)
-                                    <img src="{{ asset('images/latest/newsletter/' . $succes->image) }}"
+                                    <img src="{{ asset('images/latest/videos/' . $succes->image) }}"
                                         alt="{{ $succes->name }}" style="max-width: 50px; max-height: 50px;">
                                 @else
                                     No Image
                                 @endif
                             </td>
                             <td class="btn-group" style="display: flex ; justify-content: center">
-                                <a class="btn btn-sm btn-primary" href="{{route('newsletters.edit',$succes->id)}}">Edit</a>
-                                <form action="{{route('newsletters.destroy',$succes->id)}}" method="POST">
+                                <a class="btn btn-sm btn-primary" href="{{route('videos.edit',$succes->id)}}">Edit</a>
+                                <form action="{{route('videos.destroy',$succes->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" value="Delete" class="btn btn-danger btn-sm"  onclick="return confirm('Are You Sure Delete This!')">

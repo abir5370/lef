@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="row justify-content-center" style="margin-top: 15px; margin-left: 10px;">
-                    <form action="{{route('oursuccess.store')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{route('latesphotos.store')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     @csrf
                      {{-- Donar name  --}}
                      <div class="form-group">

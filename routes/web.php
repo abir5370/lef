@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\FacilitiesController;
 use App\Http\Controllers\Admin\Gusthouse\GuestHouseBasicController;
 use App\Http\Controllers\Admin\Latest\NewsletterController;
 use App\Http\Controllers\Admin\Latest\PhotoGalleryController;
+use App\Http\Controllers\Admin\Latest\VideosController;
 use App\Http\Controllers\Admin\MenubarController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -114,11 +115,12 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     //start-the-latest-section.....................................
      Route::resource('latesphotos',PhotoGalleryController::class);
      Route::get('/latesphotos-year',[PhotoGalleryController::class,'yearPhoto'])->name('year.photo');
+     Route::post('/latesphotos-year-store',[PhotoGalleryController::class,'yearPhotoStore'])->name('year.photostore');
      Route::post('/latesphotos-year-delete',[PhotoGalleryController::class,'deteleYear'])->name('year.delete');
      //newsletter
     Route::resource('newsletters',NewsletterController::class);
-    Route::get('/newsletters-year',[NewsletterController::class,'yearNewsletter'])->name('year.newletter');
-    Route::post('/newsletters-year-delete',[NewsletterController::class,'deteleNewsYear'])->name('newsletteryear.delete');
+   //video-section
+   Route::resource('videos',VideosController::class);
    //end-the-latest-section.......................................
 
 

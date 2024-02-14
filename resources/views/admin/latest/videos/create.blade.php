@@ -27,62 +27,28 @@
             <div class="widget-header">
                 <div class="row">
                     <div class="col-md-6 col-6 col-xs-6">
-                        <h4 class="widget-title">Edit Newletter Album</h4>
+                        <h4 class="widget-title">Create Video Information</h4>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center" style="margin-top: 15px; margin-left: 10px;">
-                    <form action="{{route('newsletters.update',$newsletter->id)}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{route('videos.store')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
-                     {{-- Donar name  --}}
-                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="title">year :</label>
-
-                        <div class="col-sm-9">
-                            <select name="year_id" id="" class="col-xs-12 col-md-11 col-sm-12">
-                                <option value="">select year</option>
-                                @foreach ($years as $year)
-                                <option value="{{$year->id}}" {{ ($year->id == $newsletter->year_id?'selected':'') }}>{{$year->year}}</option>
-                                @endforeach
-                            </select>
-                            <br> <br>
-                        </div>
-                    </div>
                      {{-- Donar name  --}}
                      <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="title">Title :</label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="title" value="{{$newsletter->title}}" id="title" placeholder="title"
+                            <input type="text" name="title" id="title" placeholder="title"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="desp">Description :</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="title">Vidoe link:</label>
 
                         <div class="col-sm-9">
-                            <textarea id="desp" name="details" 
-                            class="col-xs-12 col-md-11 col-sm-12"
-                            style="height: 80px; width: 92%;">{{$newsletter->details}}</textarea>
-                            <br> <br>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="title">online link	 :</label>
-
-                        <div class="col-sm-9">
-                            <input type="text" value="{{$newsletter->online_link}}" name="online_link" id="title" placeholder="online_link"
-                                class="col-xs-12 col-md-11 col-sm-12" />
-                            <br> <br>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="title">download link :</label>
-
-                        <div class="col-sm-9">
-                            <input type="text" value="{{$newsletter->download_link}}" name="download_link" id="title" placeholder="download_link"
+                            <input type="text" name="link" id="title" placeholder="Vidoe link"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                         </div>
@@ -107,7 +73,7 @@
                             </div>
                             <span class="help-inline col-xs-12 col-sm-7">
                                 <label class="middle">
-                                    <img height="145" id="blah" width="155" src="{{ asset('images/latest/newsletter/' . $newsletter->image) }}"
+                                    <img height="145" id="blah" width="155" src="{{ asset('images/temp.jpg') }}"
                                         alt="Image">
                                 </label>
                             </span>

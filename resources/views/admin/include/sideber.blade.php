@@ -375,6 +375,53 @@
             <b class="arrow"></b>
             <ul class="submenu">
                 <li class="">
+                    <a href="{{route('year.photo')}}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Year
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('latesphotos.index')}}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Photos
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('newsletters.index')}}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Newsletter
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+            </ul> 
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('videos.index')}}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Videos
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+            </ul> 
+
+
+
+
+
+            {{-- <ul class="submenu">
+                <li class="">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Photos
@@ -402,8 +449,8 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
-            <ul class="submenu">
+            </ul> --}}
+            {{-- <ul class="submenu">
                 <li class="">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
@@ -432,7 +479,7 @@
                         </li>
                     </ul>
                 </li>
-            </ul>   
+            </ul>    --}}
         </li>
         {{-- end-latest-section --}}
 

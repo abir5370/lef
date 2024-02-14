@@ -27,12 +27,12 @@
             <div class="widget-header">
                 <div class="row">
                     <div class="col-md-6 col-6 col-xs-6">
-                        <h4 class="widget-title">Create Photo Album</h4>
+                        <h4 class="widget-title">Create Newletter Album</h4>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center" style="margin-top: 15px; margin-left: 10px;">
-                    <form action="{{route('oursuccess.store')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{route('newsletters.store')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     @csrf
                      {{-- Donar name  --}}
                      <div class="form-group">
@@ -69,6 +69,24 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="title">online link	 :</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="online_link" id="title" placeholder="online_link"
+                                class="col-xs-12 col-md-11 col-sm-12" />
+                            <br> <br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="title">download link :</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="download_link" id="title" placeholder="download_link"
+                                class="col-xs-12 col-md-11 col-sm-12" />
+                            <br> <br>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="image">Preview Image  :</label>
                         <div class="col-sm-9">
                             <div class="col-sm-5">
@@ -97,34 +115,6 @@
 
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="image">Gallery Image  :</label>
-                        <div class="col-sm-9">
-                            <div class="col-sm-5">
-                                <div class="widget-body">
-                                    <div class="form-group">
-                                        <div class="col-xs-12 col-md-12">
-                                            <label class="ace-file-input ace-file-multiple">
-                                                <input type="file" name="albumGalleryImage[]" multiple onchange="previewImages(this)" />
-                                                <span class="ace-file-container" data-title="Choose Images...">
-                                                    <span class="ace-file-name" data-title="No Files...">
-                                                        <i class="ace-icon ace-icon fa fa-cloud-upload"></i>
-                                                    </span>
-                                                </span>
-                                                <a class="remove" href="#"><i class="ace-icon fa fa-times"></i></a>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="help-inline col-xs-12 col-sm-7">
-                                <div id="image-preview-container">
-                                    <label class="middle">
-                                        <img height="145" id="blah" width="155" src="{{ asset('images/temp.jpg') }}"
-                                            alt="Image">
-                                    </label>
-                                </div>
-                            </span>
-                        </div>
                         <div class="col-md-offset-3 col-md-9">
                             <button type="submit" class="btn btn-info">
                                 <i class="ace-icon fa fa-check bigger-110"></i>
@@ -135,30 +125,5 @@
                 </form>
             </div>
         </div>
-    </div>
-
-    <script>
-        function previewImages(input) {
-            var previewContainer = document.getElementById('image-preview-container');
-            previewContainer.innerHTML = ''; // Clear previous previews
-    
-            if (input.files) {
-                for (var i = 0; i < input.files.length; i++) {
-                    var reader = new FileReader();
-    
-                    reader.onload = function (e) {
-                        var imgElement = document.createElement('img');
-                        imgElement.setAttribute('height', '50'); // Adjusted height
-                        imgElement.setAttribute('width', '50');  // Adjusted width
-                        imgElement.src = e.target.result;
-    
-                        previewContainer.appendChild(imgElement);
-                    };
-    
-                    reader.readAsDataURL(input.files[i]);
-                }
-            }
-        }
-    </script>
-    
+    </div>  
 @endsection

@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="row justify-content-center" style="margin-top: 15px; margin-left: 10px;">
-                    <form action="{{route('weare.image')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{route('year.photostore')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="name">Year :</label>
@@ -49,6 +49,9 @@
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/chosen.min.css') }}" /> --}}
         <div class="col-12 col-md-12 col-xs-12">
             <div class="widget-box">
+                @if (session('delete'))
+                    <div class="alert alert-success" id="success-alert">{{ session('delete') }}</div>
+                @endif
                 <div class="row" style="margin: 3px;">
                     <div class="col-md-12">
                         <div class="col-xs-12">
@@ -66,8 +69,9 @@
                                             <td class="center">{{$key+1}}</td>
                                             <td class="center">{{$year->year}}</td>
                                             <td class="btn-group" style="display: flex ; justify-content: center">
-                                                <form action="{{ route('year.delete', $year->id) }}" method="POST">
+                                                <form action="{{ route('year.delete') }}" method="POST">
                                                     @csrf
+                                                    <input type="hidden" name="id" value="{{$year->id}}">
                                                     <input type="submit" value="Delete" class="btn btn-danger btn-sm"  onclick="return confirm('Are You Sure Delete This!')">
                                                 </form>
                                             </td>

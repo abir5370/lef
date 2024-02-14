@@ -40,6 +40,9 @@
                                 S/N
                             </th>
                             <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
+                            colspan="1" aria-label="service Name: activate to sort column ascending">Year
+                           </th>
+                            <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
                                 colspan="1" aria-label="service Name: activate to sort column ascending">Title
                             </th>
 
@@ -55,7 +58,7 @@
                         </tr>
                     </thead>
 
-                    {{-- <tbody>
+                    <tbody>
                         @php
                             $sn = 1;
                         @endphp
@@ -64,19 +67,24 @@
                                 <td class="center">
                                     {{ $sn++ }}
                                 </td>
-                                <td>{{ $succes->name }}</td>
-                                <td>{{ $succes->details }}</td>
+                                @if ($succes->PhotoYear)
+                                    <td>{{ $succes->PhotoYear->year }}</td>
+                                @else
+                                    <td>No Photo Year available</td>
+                                @endif
+                                <td>{{ $succes->title }}</td>
+                                <td>{{  Str::limit($succes->details, 40) }}</td> 
                                 <td>
                                     @if ($succes->image)
-                                        <img src="{{ asset('images/success/' . $succes->image) }}"
+                                        <img src="{{ asset('images/latest/photoAlbum/' . $succes->image) }}"
                                             alt="{{ $succes->name }}" style="max-width: 50px; max-height: 50px;">
                                     @else
                                         No Image
                                     @endif
                                 </td>
                                 <td class="btn-group" style="display: flex ; justify-content: center">
-                                    <a class="btn btn-sm btn-primary" href="{{route('oursuccess.edit',$succes->id)}}">Edit</a>
-                                    <form action="{{route('oursuccess.destroy',$succes->id)}}" method="POST">
+                                    <a class="btn btn-sm btn-primary" href="{{route('latesphotos.edit',$succes->id)}}">Edit</a>
+                                    <form action="{{route('latesphotos.destroy',$succes->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <input type="submit" value="Delete" class="btn btn-danger btn-sm"  onclick="return confirm('Are You Sure Delete This!')">
@@ -85,7 +93,7 @@
                                 </td>
                             </tr>
                         @endforeach
-                    </tbody> --}}
+                    </tbody>
                 </table>
             </div>
         </div>
