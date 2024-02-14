@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\SuccessController;
 use App\Http\Controllers\Admin\SupporterController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WidgetController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontendController;
@@ -146,7 +147,16 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     Route::post('/gallery/basic/storeUpdate',[GuestHouseBasicController::class,'basicStoreUpdate'])->name('gursthouesegallerys.store');
     
     //profile setting
-    Route::get('/profile-password-change',[ProfileController::class,'password'])->name('password');
-    Route::post('/password-update', [ProfileController::class, 'passwordUpdate'])->name('password.update');
+    // Route::get('/profile-password-change',[ProfileController::class,'password'])->name('password');
+    // Route::post('/password-update', [ProfileController::class, 'passwordUpdate'])->name('password.update');
     Route::post('/widgets/update',[WidgetController::class,'update'])->name('widgets.update');
+    //profile setting
+    Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
+    Route::post('/profile-baicInfo-change', [ProfileController::class, 'infoUpdate'])->name('info.update');
+    Route::post('/profile-password-change', [ProfileController::class, 'passwordUpdate'])->name('password.update');
+
+      //user
+    Route::get('/user-create',[UserController::class,'create'])->name('user.create');
+    Route::post('/user-store',[UserController::class,'store'])->name('user.store');
+    Route::post('/user-delete/{id}',[UserController::class,'delete'])->name('user.delete');
 });

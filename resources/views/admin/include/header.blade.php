@@ -34,9 +34,9 @@
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="{{route('password')}}">
+                            <a href="{{route('profile')}}">
                                 <i class="ace-icon fa fa-user"></i>
-                                Change Password
+                                Profile
                             </a>
                         </li>
 

@@ -9,13 +9,58 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    public function password(){
+    public function profile(){
         return view('admin.auth.change_password');
+    }
+
+    public function infoUpdate(Request $request){
+        if ($request->image == ''){
+            User::find(Auth()->user()->id)->update([
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'phone'=>$request->phone,
+            ]);
+            return back()->with('success','profile updated!');
+        }
+        else{
+            $photo = Auth()->user()->image;
+            if ($photo == null){
+               $image = $request->image;
+               $extension = $image->getClientOriginalExtension();
+               $imageName = Auth()->user()->id.'.'.$extension;
+               $img = $image->move(public_path('/images/user/'), $imageName);;
+               User::find(Auth()->user()->id)->update([
+                   'name'=>$request->name,
+                   'email'=>$request->email,
+                   'image'=>$imageName,
+                   'phone'=>$request->phone,
+               ]);
+               return back()->with('success','profile updated!');
+            }
+            else{
+                $delete_form = public_path('images/user/'.$photo);
+                unlink($delete_form);
+
+                $image = $request->image;
+                $extension = $image->getClientOriginalExtension();
+                $imageName = Auth()->user()->id.'.'.$extension;
+                $img = $image->move(public_path('/images/user/'), $imageName);
+
+                User::find(Auth()->user()->id)->update([
+                    'name'=>$request->name,
+                    'email'=>$request->email,
+                    'image'=>$imageName,
+                    'phone'=>$request->phone,
+                    
+                ]);
+                return back()->with('success','profile updated!');
+            }
+        }
     }
 
     public function passwordUpdate(Request $request){
         $request->validate([
-            'current_password'=>'required',
+            'old_password'=>'required',
             'password'=>'required|confirmed',
             'password_confirmation'=>'required'
         ]);
