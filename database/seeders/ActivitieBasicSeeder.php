@@ -16,6 +16,7 @@ class ActivitieBasicSeeder extends Seeder
         DB::table('basic_activities')->insert([
             'title' => 'Admin',
             'details' => 'Admin fdsfsdfs',
+            'image' => '1244.jpg',
             'gallery_header' => 'Edit gallery_header',
             'vdo_header' => 'Edit vdo_header',
             'vdo_link' => 'Edit vdo_link',
