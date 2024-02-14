@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('about_basics', function (Blueprint $table) {
             $table->id();
             $table->string('title',150);
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('we_are_content');
             $table->text('we_do_content');
             $table->text('missionContent');

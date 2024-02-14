@@ -31,7 +31,7 @@
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay=".3s">
-                <img src="{{ asset('images/about/' . $widget->image) }}" class="img-fluid imgabout h-100" alt="img">
+                <img src="{{ asset('images/about/' . ($widget->image ?? '')) }}" class="img-fluid imgabout h-100" alt="img">
 
             </div>
             <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay=".6s">
