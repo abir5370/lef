@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('details', 500);
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('slideDownDetails');
             $table->text('vdo_link'); 
             $table->text('bottom_content');
