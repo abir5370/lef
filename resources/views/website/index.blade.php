@@ -37,8 +37,8 @@
             <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay=".6s">
                 <div class="about-item overflow-hidden">
                     
-                    <h2 class="display-5 mb-2 herofont3">{{$widget->title}}.</h2>
-                    <p class="fs-5" style="text-align: justify;">{{$widget->description}}</p>
+                    <h2 class="display-5 mb-2 herofont3">{{$widget->title ?? ''}}.</h2>
+                    <p class="fs-5" style="text-align: justify;">{{$widget->description?? ''}}</p>
                     
                     <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-5">SUPPORT US</button>
                 </div>
