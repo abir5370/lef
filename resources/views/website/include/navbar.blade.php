@@ -40,7 +40,8 @@
                 @php
                   $widget = App\Models\Logo::first();
                 @endphp
-                <img class="navimg" src="{{asset('images/logo/'.$widget->image)}}" alt="Company logo">
+                <img class="navimg" src="{{ asset('images/logo/'.($widget->image ?? '')) }}
+                " alt="Company logo">
 
                 <h1 class="text-primary mb-0 display-5 navh1">
                     LEF For<span class="text-white"> Life</span>
